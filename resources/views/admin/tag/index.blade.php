@@ -51,8 +51,10 @@
                                 @endif
                             </td>
                             <td>
-                                <a href="/admin/tag/{{ $tag->id }}/edit" class="btn btn-xs btn-info">
-                                    <i class="fa fa-edit"></i> 编辑
+                                <a href="/admin/tag/{{ $tag->id }}" class="btn btn-xs btn-info">
+                                    <i class="fa fa-edit"></i>
+                                    <i class="fa fa-eye"></i>
+                                    <i class="fa fa-minus"></i>
                                 </a>
                             </td>
                         </tr>
