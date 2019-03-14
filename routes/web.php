@@ -27,12 +27,16 @@ Route::namespace('Auth')->group(function (){
 });
 
 Route::prefix('admin')->namespace('Admin')->middleware('auth')->group(function (){
-    
+    /*
     Route::prefix('post')->group(function (){
         Route::get('index', 'PostController@index')->name('post_admin');
         Route::get('create', 'PostController@create')->name('post_create');
         Route::post('store', 'PostController@store')->name('post_store');
         Route::get('update', 'PostController@update')->name('post_update');
     });
+    */
+    Route::resource('tag', 'TagController');
+    Route::resource('post', 'PostController');
+    Route::get('upload', 'UploadController@index');
 
 });

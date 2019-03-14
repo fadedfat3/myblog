@@ -4,9 +4,22 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Tag;
+use App\Http\Requests\TagCreateRequest;
 
-class PostController extends Controller
+class TagController extends Controller
 {
+
+    protected $fields = [
+        'tag' => '',
+        'title' => '',
+        'subtitle' => '',
+        'meta_description' => '简介',
+        'page_image' => 'example.jpg',
+        'layout' => 'blog.layouts.index',
+        'reverse_direction' => 0,
+    ];
+
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +28,8 @@ class PostController extends Controller
     public function index()
     {
         //
+        $tags = Tag::all();
+        return view('admin.tag.index', ['tags' => $tags]);        
     }
 
     /**
@@ -25,6 +40,12 @@ class PostController extends Controller
     public function create()
     {
         //
+        $data = [];
+        foreach ($this->fields as $field => $default) {
+            $data[$field] = old($field, $default);
+        }
+
+        return view('admin.tag.create', $data);
     }
 
     /**
@@ -33,9 +54,17 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TagCreateRequest $request)
     {
-        //
+        //$data = $request->validate();
+        $tag = new Tag();
+        foreach ($this->fields as $field => $value)
+        {
+            $tag->$field = $request->input($field, $value);
+        }
+        $tag->save();
+        return redirect('/admin/tag')
+        ->with('success', '标签「' . $tag->tag . '」创建成功.');
     }
 
     /**
