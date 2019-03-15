@@ -48,7 +48,13 @@ Route::prefix('admin')->namespace('Admin')->middleware('auth')->group(function (
     });
     
     
-    
-    Route::get('upload', 'UploadController@index');
+    Route::prefix('upload')->group(function (){
+        Route::get('/', 'UploadController@index');
+        Route::post('file', 'UploadController@uploadFile');
+        Route::delete('file', 'UploadController@deleteFile');
+        Route::post('folder', 'UploadController@createFolder');
+        Route::delete('folder', 'UploadController@deleteFolder');
+    });
+        
 
 });
