@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Tag;
 use App\Http\Requests\TagCreateRequest;
+use App\Http\Requests\TagUpdateRequest;
 
 class TagController extends Controller
 {
@@ -76,6 +77,16 @@ class TagController extends Controller
     public function show($id)
     {
         //
+        $tag = Tag::find($id);
+        $data = [];
+        foreach($this->fields as $field => $value)
+        {
+            $data[$field] = $tag->$field ?: $value;
+        }
+        if(!$tag){
+            return redict('/admin/tag')->with('error', '标签：' . $tag->tag . '不存在'); 
+        }
+        return view('admin.tag.show', $data);
     }
 
     /**
@@ -96,9 +107,16 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TagUpdateRequest $request, $id)
     {
         //
+        $tag = Tag::find($id);
+        foreach($this->fields as $field => $value)
+        {
+            $tag->$field = $request->input($field);
+        }
+        $tag->save();
+        return redirect('/admin/tag')->with('success', '标签:' . $tag->tag . '更新成功');
     }
 
     /**
@@ -110,5 +128,8 @@ class TagController extends Controller
     public function destroy($id)
     {
         //
+        $tag = Tag::find($id);
+        $tag->delete();
+        return redirect('admin/tag')->with('success', '标签：' . $tag->tag . '删除成功');
     }
 }
