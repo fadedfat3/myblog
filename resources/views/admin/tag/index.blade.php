@@ -51,12 +51,14 @@
                                 @endif
                             </td>
                             <td>
-                                <a href="/admin/tag/{{ $tag->id }}" class="btn btn-xs btn-info">
+
+                                <a href="/admin/tag/{{ $tag->id }}"  class="btn btn-xs btn-info">
                                     <i class="fa fa-eye"></i> 
                                 </a>
-                                <a href="/admin/tag/update/{{ $tag->id }}" class="btn btn-xs btn-info">
+                                <a href="/admin/tag/edit/{{ $tag->id }}"  class="btn btn-xs btn-info">
                                     <i class="fa fa-edit"></i> 
                                 </a>
+                
                                 <a href="/admin/tag/delete/{{ $tag->id }}" class="btn btn-xs btn-info">
                                     <i class="fa fa-minus"></i> 
                                 </a>

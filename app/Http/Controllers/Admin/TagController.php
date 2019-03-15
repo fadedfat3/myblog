@@ -83,9 +83,7 @@ class TagController extends Controller
         {
             $data[$field] = $tag->$field ?: $value;
         }
-        if(!$tag){
-            return redict('/admin/tag')->with('error', '标签：' . $tag->tag . '不存在'); 
-        }
+        $data['id'] = $tag->id;
         return view('admin.tag.show', $data);
     }
 
@@ -98,6 +96,14 @@ class TagController extends Controller
     public function edit($id)
     {
         //
+        $tag = Tag::find($id);
+        $data = [];
+        foreach($this->fields as $field => $value)
+        {
+            $data[$field] = $tag->$field ?: $value;
+        }
+        $data['id'] = $tag->id;
+        return view('admin.tag.update', $data);
     }
 
     /**
@@ -125,7 +131,7 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
         //
         $tag = Tag::find($id);
