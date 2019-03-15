@@ -27,7 +27,7 @@ class TagCreateRequest extends FormRequest
             'tag' => 'bail|required|unique:tags,tag',
             'title' => 'required',
             'subtitle' => 'required',
-            
+            'meta_description' => 'required | string',
         ];
     }
 }
