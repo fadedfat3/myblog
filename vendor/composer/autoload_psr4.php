@@ -41,6 +41,7 @@ return array(
     'NunoMaduro\\Collision\\' => array($vendorDir . '/nunomaduro/collision/src'),
     'Nexmo\\' => array($vendorDir . '/nexmo/client/src'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
+    'Michelf\\' => array($vendorDir . '/michelf/php-markdown/Michelf'),
     'League\\Flysystem\\' => array($vendorDir . '/league/flysystem/src'),
     'Lcobucci\\JWT\\' => array($vendorDir . '/lcobucci/jwt/src'),
     'Laravel\\Tinker\\' => array($vendorDir . '/laravel/tinker/src'),

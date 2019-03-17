@@ -103,6 +103,7 @@ class ComposerStaticInit588f09c8ef2727667ccc43dedb4b3de6
         'M' => 
         array (
             'Monolog\\' => 8,
+            'Michelf\\' => 8,
         ),
         'L' => 
         array (
@@ -308,6 +309,10 @@ class ComposerStaticInit588f09c8ef2727667ccc43dedb4b3de6
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'Michelf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/michelf/php-markdown/Michelf',
+        ),
         'League\\Flysystem\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/flysystem/src',
@@ -437,6 +442,10 @@ class ComposerStaticInit588f09c8ef2727667ccc43dedb4b3de6
             array (
                 0 => __DIR__ . '/..' . '/mockery/mockery/library',
             ),
+            'Michelf' => 
+            array (
+                0 => __DIR__ . '/..' . '/michelf/php-smartypants',
+            ),
         ),
         'D' => 
         array (
@@ -475,6 +484,8 @@ class ComposerStaticInit588f09c8ef2727667ccc43dedb4b3de6
         'App\\Http\\Requests\\PostRequest' => __DIR__ . '/../..' . '/app/Http/Requests/PostRequest.php',
         'App\\Http\\Requests\\TagCreateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/TagCreateRequest.php',
         'App\\Http\\Requests\\TagUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/TagUpdateRequest.php',
+        'App\\Http\\Requests\\UploadFileRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UploadFileRequest.php',
+        'App\\Http\\Requests\\UploadFolderRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UploadFolderRequest.php',
         'App\\Models\\Post' => __DIR__ . '/../..' . '/app/Models/Post.php',
         'App\\Models\\Tag' => __DIR__ . '/../..' . '/app/Models/Tag.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -482,6 +493,7 @@ class ComposerStaticInit588f09c8ef2727667ccc43dedb4b3de6
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Services\\UploadManager' => __DIR__ . '/../..' . '/app/Services/UploadManager.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
         'BeyondCode\\DumpServer\\DumpServerServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
@@ -2388,6 +2400,11 @@ class ComposerStaticInit588f09c8ef2727667ccc43dedb4b3de6
         'League\\Flysystem\\Util\\ContentListingFormatter' => __DIR__ . '/..' . '/league/flysystem/src/Util/ContentListingFormatter.php',
         'League\\Flysystem\\Util\\MimeType' => __DIR__ . '/..' . '/league/flysystem/src/Util/MimeType.php',
         'League\\Flysystem\\Util\\StreamHasher' => __DIR__ . '/..' . '/league/flysystem/src/Util/StreamHasher.php',
+        'Michelf\\Markdown' => __DIR__ . '/..' . '/michelf/php-markdown/Michelf/Markdown.php',
+        'Michelf\\MarkdownExtra' => __DIR__ . '/..' . '/michelf/php-markdown/Michelf/MarkdownExtra.php',
+        'Michelf\\MarkdownInterface' => __DIR__ . '/..' . '/michelf/php-markdown/Michelf/MarkdownInterface.php',
+        'Michelf\\SmartyPants' => __DIR__ . '/..' . '/michelf/php-smartypants/Michelf/SmartyPants.php',
+        'Michelf\\SmartyPantsTypographer' => __DIR__ . '/..' . '/michelf/php-smartypants/Michelf/SmartyPantsTypographer.php',
         'Mockery' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'Mockery\\Adapter\\Phpunit\\Legacy\\TestListenerForV5' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/Legacy/TestListenerForV5.php',
         'Mockery\\Adapter\\Phpunit\\Legacy\\TestListenerForV6' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/Legacy/TestListenerForV6.php',

@@ -12,7 +12,7 @@
                         @foreach ($breadcrumbs as $path => $disp)
                             <li><a href="/admin/upload?folder={{ $path }}">{{ $disp }}</a></li>
                         @endforeach
-                        <li class="active">{{ $folderName }}</li>
+                        <li class="active">/{{ $folderName }}</li>
                     </ul>
                 </div>
             </div>

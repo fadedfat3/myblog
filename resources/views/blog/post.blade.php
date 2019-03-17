@@ -8,8 +8,7 @@
     <h1>{{ $post->title }}</h1>
     <h5>{{ $post->published_at }}</h5>
     <hr>
-    <div> {!! str_replace('\n', '<br>', e($post->content)) !!}</div>
-   
+    {!! nl2br(e($post->content)) !!}
     <hr>
     <button class="btn btn-primary" onclick="history.go(-1)">
         « Back

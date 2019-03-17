@@ -13,7 +13,7 @@ class UploadManager
 
     public function __construct(PhpRepository $mimeDetect)
     {
-        $this->disk = Storage::disk(config('blog.uploads.storage'));
+        $this->disk = Storage::disk(config('myblog.uploads.storage'));
         $this->mimeDetect = $mimeDetect;
     }
 
@@ -71,7 +71,7 @@ class UploadManager
     protected function breadcrumbs($folder)
     {
         $folder = trim($folder, '/');
-        $crumbs = ['/' => 'root'];
+        $crumbs = ['/' => ''];
 
         if (empty($folder)) {
             return $crumbs;
@@ -109,7 +109,7 @@ class UploadManager
      */
     public function fileWebpath($path)
     {
-        $path = rtrim(config('blog.uploads.webpath'), '/') . '/' . ltrim($path, '/');
+        $path = rtrim(config('myblog.uploads.webpath'), '/') . '/' . ltrim($path, '/');
         return url($path);
     }
 
