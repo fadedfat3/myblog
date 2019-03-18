@@ -40,6 +40,24 @@ class Post extends Model
     {
         return $this->content_raw;
     }
+
+    /**
+     * content_html 
+     */
+    public function getContentHtmlAttribute($value)
+    {
+        $markdown = new Markdowner();
+        return $markdown->toHtml($this->content);
+    }
+
+    /**
+     * abstract 字段别名
+     */
+    public function getAbstractAttribute()
+    {   
+        preg_match_all("/(<([\w]+)[^>]*>)(.*?)(<\/\\2>)/", $this->content_html, $match);
+        return join(' ', $match[3]);
+    }
     /**
      * The many-to-many relationship between posts and tags.
      *
@@ -90,11 +108,15 @@ class Post extends Model
      */
     public function setContentRawAttribute($value)
     {
-        $markdown = new Markdowner();
+        //$markdown = new Markdowner();
 
         $this->attributes['content_raw'] = $value;
-        $this->attributes['content_html'] = $markdown->toHTML($value);
+        //$this->attributes['content_html'] = $markdown->toHTML($value);
     }
+
+    /**
+     * 设置
+     */
 
     /**
      * Sync tag relation adding new tags as needed

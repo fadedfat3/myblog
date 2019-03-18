@@ -16,8 +16,8 @@ Route::get('/', function () {
 });
 
 Route::prefix('post')->group(function(){
-    Route::get('/', 'BlogController@index')->name('home');
-    Route::get('{slug}', 'BlogController@show')->name('blog.detail');
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('{slug}', 'HomeController@show')->name('post.show');
 });
 
 Route::namespace('Auth')->group(function (){

@@ -11,10 +11,10 @@
     <ul>
         @foreach ($posts as $post)
             <li>
-                <a href="{{ route('blog.detail', ['slug' => $post->slug]) }}">{{ $post->title }}</a>
+                <a href="{{ route('post.show', ['slug' => $post->slug]) }}">{{ $post->title }}</a>
                 <em>({{ $post->published_at }})</em>
                 <p>
-                    {{ str_limit($post->content_html) }}
+                    {{ str_limit($post->abstract) }}
                 </p>
             </li>
         @endforeach
