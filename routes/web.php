@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::prefix('post')->group(function(){
     Route::get('/', 'HomeController@index')->name('home');
-    Route::get('{slug}', 'HomeController@show')->name('post.show');
+    Route::get('{id}', 'HomeController@show')->name('post.show');
 });
 
 Route::namespace('Auth')->group(function (){
@@ -35,7 +35,7 @@ Route::prefix('admin')->namespace('Admin')->middleware('auth')->group(function (
         Route::get('edit/{id}', 'PostController@edit')->name('post.edit');
         Route::post('store', 'PostController@store')->name('post.store');
         Route::post('update/{id}', 'PostController@update')->name('post.update');
-        Route::post('delete/{id}', 'PostController@delete')->name('post.destroy');
+        Route::get('delete/{id}', 'PostController@destroy')->name('post.destroy');
     });
     Route::prefix('tag')->group(function (){
         Route::get('/', 'TagController@index')->name('tag_admin');

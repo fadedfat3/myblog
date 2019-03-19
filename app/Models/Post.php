@@ -12,7 +12,7 @@ class Post extends Model
 
     // 在 Post 类的 $dates 属性后添加 $fillable 属性
     protected $fillable = [
-        'title', 'subtitle', 'content_raw', 'page_image', 'meta_description','layout', 'is_draft', 'published_at',
+        'title', 'content_raw', 'is_draft', 'published_at', 'meta_description'
     ];
 
     // 然后在 Post 模型类中添加如下几个方法
@@ -20,7 +20,7 @@ class Post extends Model
     /**
      * 返回 published_at 字段的日期部分
      */
-    public function getPublishDateAttribute($value)
+    public function getPublishedDateAttribute($value)
     {
         return $this->published_at->format('Y-m-d');
     }
@@ -28,7 +28,7 @@ class Post extends Model
     /**
      * 返回 published_at 字段的时间部分
      */
-    public function getPublishTimeAttribute($value)
+    public function getPublishedTimeAttribute($value)
     {
         return $this->published_at->format('g:i A');
     }
@@ -55,8 +55,11 @@ class Post extends Model
      */
     public function getAbstractAttribute()
     {   
+        if ($this->meta_description){
+            return $this->meta_description;
+        }
         preg_match_all("/(<([\w]+)[^>]*>)(.*?)(<\/\\2>)/", $this->content_html, $match);
-        return join(' ', $match[3]);
+        return mb_substr(join(' ', $match[3]), 0, 20, 'UTF-8');
     }
     /**
      * The many-to-many relationship between posts and tags.
@@ -68,39 +71,7 @@ class Post extends Model
         return $this->belongsToMany(Tag::class, 'post_tag_pivot');
     }
 
-    /**
-     * Set the title attribute and automatically the slug
-     *
-     * @param string $value
-     */
-    public function setTitleAttribute($value)
-    {
-        $this->attributes['title'] = $value;
-
-        if (!$this->exists) {
-            $value = uniqid(str_random(8));
-            $this->setUniqueSlug($value, 0);
-        }
-    }
-
-    /**
-     * Recursive routine to set a unique slug
-     *
-     * @param string $title
-     * @param mixed $extra
-     */
-    protected function setUniqueSlug($title, $extra)
-    {
-        $slug = str_slug($title . '-' . $extra);
-
-        if (static::where('slug', $slug)->exists()) {
-            $this->setUniqueSlug($title, $extra + 1);
-            return;
-        }
-
-        $this->attributes['slug'] = $slug;
-    }
-
+    
     /**
      * Set the HTML content automatically when the raw content is set
      *

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('myblog.title') }}--管理后台</title>
+    <title>{{ config('myblog.title') }}</title>
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('styles')
@@ -16,19 +16,17 @@
 {{-- Navigation Bar --}}
 <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
     <div class="container">
-        @include('navbar')
-         
-    </div>
-</nav>
+        <a class="navbar-brand mr-auto mr-lg-0" href="/">{{ config('myblog.title') }} </a>
+        <button class="navbar-toggler p-0 border-0" type="button" data-toggle="collapse" data-target="#navbar-menu"
+                aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-<nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-    <div class="container">
-        <div>
-            @include('admin.navbar')
-        </div>     
+        <div class="collapse navbar-collapse" id="navbar-menu">
+            @include('navbar')
+        </div>
     </div>
 </nav>
- 
 
 <main class="py-4">
     @yield('content')

@@ -22,26 +22,33 @@
                 <table id="posts-table" class="table table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th>发布时间</th>
                         <th>标题</th>
-                        <th>副标题</th>
+                        <th>发布状态</th>
+                        <th>发布时间</th>
                         <th data-sortable="false">操作</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach ($posts as $post)
                         <tr>
-                            <td data-order="{{ $post->published_at->timestamp }}">
-                                {{ $post->published_at->format('Y-m-d g:ia') }}
+                            <td>
+                                <a href="/post/{{$post->id}}">{{ $post->title }}</a>
                             </td>
-                            <td>{{ $post->title }}</td>
-                            <td>{{ $post->subtitle }}</td>
+                            <td>
+                            @if( $post->is_draft)
+                                未发布
+                            @else
+                                已发布
+                            @endif</td>
+                            <td data-order="{{ $post->published_at->timestamp }}">
+                                {{ $post->published_at->format('Y-m-d H:m:s') }}
+                            </td>
                             <td>
                                 <a href="/admin/post/edit/{{ $post->id }}" class="btn btn-xs btn-info">
-                                    <i class="fa fa-edit"></i> 编辑
+                                    <i class="fa fa-edit"></i> 
                                 </a>
-                                <a href="/post/{{$post->slug}}" class="btn btn-xs btn-warning">
-                                    <i class="fa fa-eye"></i> 查看
+                                <a href="/admin/post/delete/{{$post->id}}" class="btn btn-xs btn-warning">
+                                    <i class="fa fa-minus"></i> 
                                 </a>
                             </td>
                         </tr>
@@ -61,5 +68,6 @@
                 order: [[0, "desc"]]
             });
         });
+        
     </script>
 @stop

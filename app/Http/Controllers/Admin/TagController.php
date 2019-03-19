@@ -65,7 +65,7 @@ class TagController extends Controller
         }
         $tag->save();
         return redirect('/admin/tag')
-        ->with('success', '标签「' . $tag->tag . '」创建成功.');
+        ->with('success', '标签: ' . $tag->tag . ' 创建成功.');
     }
 
     /**

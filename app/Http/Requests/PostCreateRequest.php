@@ -24,11 +24,10 @@ class PostCreateRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'subtitle' => 'required',
+            
             'content' => 'required',
-            'publish_date' => 'required',
-            'publish_time' => 'required',
-            'layout' => 'required',
+            
+            
         ];
     }
 
@@ -37,18 +36,14 @@ class PostCreateRequest extends FormRequest
      */
     public function postFillData()
     {
-        $published_at = new Carbon(
-            $this->publish_date . ' ' . $this->publish_time
-        );
+        $published_at = Carbon::now();
         return [
             'title' => $this->title,
-            'subtitle' => $this->subtitle,
-            'page_image' => $this->page_image,
             'content_raw' => $this->get('content'),
             'meta_description' => $this->meta_description,
             'is_draft' => (bool)$this->is_draft,
             'published_at' => $published_at,
-            'layout' => $this->layout,
+            
         ];
     }
 }

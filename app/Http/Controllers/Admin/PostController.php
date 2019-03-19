@@ -24,7 +24,6 @@ class PostController extends Controller
         'is_draft' => "0",
         'publish_date' => '',
         'publish_time' => '',
-        'layout' => 'blog.layouts.post',
         'tags' => [],
     ];
 
@@ -71,7 +70,7 @@ class PostController extends Controller
 
         return redirect()
             ->route('post.index')
-            ->with('success', '新文章创建成功.');
+            ->with('success', '文章: '. $post->title.'创建成功.');
     }
 
     /**
@@ -91,12 +90,12 @@ class PostController extends Controller
         if ($request->action === 'continue') {
             return redirect()
                 ->back()
-                ->with('success', '文章已保存.');
+                ->with('success', echo_info($post->title,'文章','已保存.'));
         }
 
         return redirect()
             ->route('post.index')
-            ->with('success', '文章已保存.');
+            ->with('success', echo_info($post->title,'文章','已保存.'));
     }
 
     /**
@@ -113,7 +112,7 @@ class PostController extends Controller
 
         return redirect()
             ->route('post.index')
-            ->with('success', '文章已删除.');
+            ->with('success', echo_info($post->title,'文章','已删除.'));
     }
 
     /**

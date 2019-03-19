@@ -44,7 +44,8 @@
             "database/factories"
         ],
         "files":[
-            "app/Util/FileUtil.php"
+            "app/Util/FileUtil.php",
+            "app/Util/InfoUtil.php"
         ]
     },
     "autoload-dev": {

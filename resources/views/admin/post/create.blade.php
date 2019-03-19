@@ -66,5 +66,7 @@
                 create: true
             });
         });
+
+        
     </script>
 @stop
