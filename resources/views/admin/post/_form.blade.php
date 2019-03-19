@@ -49,30 +49,23 @@
             <div class="col-md-10">
                 <textarea class="form-control" name="content" rows="14" id="content">{{ $content }}</textarea>
             </div>
-            <label for="file" class="col-md-2 col-form-label">
-                Markdown文件名
-            </label>
-            <input class="col-md-10" type='file' name="file" id="markdown_filepath">
-            <button onclick="readMarkdownFile()">生成内容</button>
+            @if(Request::is('/admin/post/create/*'))
+                <label for="file" class="col-md-2 col-form-label">
+                    MD文件
+                </label>
+                <input class="col-md-7" type='file' name="file" id="markdown_filepath">
+                <button class="col-md-2" type="button" onclick="readMarkdownFile()">生成</button>
+            @endif
         </div>
     </div>
     <div class="col-md-8">
        
+        
         <div class="form-group row">
-            <div class="col-md-10 col-md-offset-3">
-                <div class="checkbox">
-                    <label>
-                        <input {{ checked($is_draft) }} type="checkbox" name="is_draft">
-                        草稿?
-                    </label>
-                </div>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="tags" class="col-md-10 col-form-label">
+            <label for="tags" class="col-md-2 col-form-label">
                 标签
             </label>
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <select name="tags[]" id="tags" class="form-control" multiple>
                     @foreach ($allTags as $tag)
                         <option @if (in_array($tag, $tags)) selected @endif value="{{ $tag }}">
@@ -82,7 +75,17 @@
                 </select>
             </div>
         </div>
-    
+        
+        <div class="form-group row">
+            <div class="col-md-10 col-md-offset-3">
+                <div class="checkbox">
+                    <label>
+                        <input {{ checked($is_draft) }} type="checkbox" name="is_draft">
+                        存为草稿
+                    </label>
+                </div>
+            </div>
+        </div>
         
 
     </div>
