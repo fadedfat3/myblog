@@ -8,10 +8,8 @@
             }
             var reader = new FileReader();
             reader.readAsText(files[0], 'UTF-8');
-            reader.onload = function(evt){
-                alert(evt.target.result);
+            reader.onload = function(evt){            
                 var content = evt.target.result;
-                $('#content').val(content);
                 alert($('#content').val());
             }
             filepath = filepath.replace(/\\/g, '/');
