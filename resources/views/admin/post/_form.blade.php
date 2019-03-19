@@ -10,7 +10,7 @@
             reader.readAsText(files[0], 'UTF-8');
             reader.onload = function(evt){            
                 var content = evt.target.result;
-                alert($('#content').val());
+                $('#content').val(content);
             }
             filepath = filepath.replace(/\\/g, '/');
            
