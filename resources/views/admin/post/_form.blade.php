@@ -49,7 +49,7 @@
             <div class="col-md-10">
                 <textarea class="form-control" name="content" rows="14" id="content">{{ $content }}</textarea>
             </div>
-            @if(Request::is('/admin/post/create/*'))
+            @if(Request::is('admin/post/create*'))
                 <label for="file" class="col-md-2 col-form-label">
                     MD文件
                 </label>
