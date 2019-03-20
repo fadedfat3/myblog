@@ -33,6 +33,7 @@ class ComposerStaticInit588f09c8ef2727667ccc43dedb4b3de6
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         '0d8253363903f0ac7b0978dcde4e28a0' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/helpers.php',
         'b8e6274128bcfd2574503c8237c836f4' => __DIR__ . '/../..' . '/app/Util/FileUtil.php',
+        '13e9f349b118dbd4273a0ef08bbe5a9e' => __DIR__ . '/../..' . '/app/Util/InfoUtil.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -472,7 +473,7 @@ class ComposerStaticInit588f09c8ef2727667ccc43dedb4b3de6
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
-        'App\\Http\\Controllers\\PostController' => __DIR__ . '/../..' . '/app/Http/Controllers/PostController.php',
+        'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
@@ -481,7 +482,8 @@ class ComposerStaticInit588f09c8ef2727667ccc43dedb4b3de6
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
-        'App\\Http\\Requests\\PostRequest' => __DIR__ . '/../..' . '/app/Http/Requests/PostRequest.php',
+        'App\\Http\\Requests\\PostCreateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/PostCreateRequest.php',
+        'App\\Http\\Requests\\PostUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/PostUpdateRequest.php',
         'App\\Http\\Requests\\TagCreateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/TagCreateRequest.php',
         'App\\Http\\Requests\\TagUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/TagUpdateRequest.php',
         'App\\Http\\Requests\\UploadFileRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UploadFileRequest.php',
@@ -493,6 +495,7 @@ class ComposerStaticInit588f09c8ef2727667ccc43dedb4b3de6
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Services\\Markdowner' => __DIR__ . '/../..' . '/app/Services/Markdowner.php',
         'App\\Services\\UploadManager' => __DIR__ . '/../..' . '/app/Services/UploadManager.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',

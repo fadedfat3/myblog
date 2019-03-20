@@ -40,8 +40,8 @@ class PostCreateRequest extends FormRequest
         return [
             'title' => $this->title,
             'content_raw' => $this->get('content'),
-            'meta_description' => $this->meta_description,
-            'is_draft' => (bool)$this->is_draft,
+            'meta_description' => ltrim($this->meta_description),
+            'is_draft' => $this->action === 'continue' ? 1 : 0,
             'published_at' => $published_at,
             
         ];

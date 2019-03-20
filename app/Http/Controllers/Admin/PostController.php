@@ -67,10 +67,10 @@ class PostController extends Controller
     {
         $post = Post::create($request->postFillData());
         $post->syncTags($request->get('tags', []));
-
+        $msg = $post->is_draft ? '存为草稿' : '已发布';
         return redirect()
             ->route('post.index')
-            ->with('success', '文章: '. $post->title.'创建成功.');
+            ->with('success', echo_info($post->title, '新文章', $msg));
     }
 
     /**
@@ -84,18 +84,14 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         $post->fill($request->postFillData());
-        //$post->save();
+        $post->save();
         $post->syncTags($request->get('tags', []));
 
-        if ($request->action === 'continue') {
-            $post->is_draft = 1;
-            $post->save();
+        if ($post->is_draft) {
             return redirect()
                 ->back()
                 ->with('success', echo_info($post->title,'文章','保存为草稿.'));
         }
-        $post->is_draft = 0;
-        $post->save();
         return redirect()
             ->route('post.index')
             ->with('success', echo_info($post->title,'文章','已保存并发布.'));

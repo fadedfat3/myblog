@@ -31,11 +31,19 @@
                             <div class="row">
                                 <div class="col-md-8">
                                     <div class="form-group row">
-                                        <div class="col-md-10 offset-md-2">
-                                            <button type="submit" class="btn btn-primary">
-                                                <i class="fa fa-disk-o"></i>
-                                                保存新文章
+                                        <div class="col-md-10 offset-md-2" >
+                                            
+                                            <button type="submit" class="btn btn-success" name="action" value="finished">                                                
+                                                发布
                                             </button>
+                                            <button type="submit" class="btn btn-primary" name="action" value="continue">                                                
+                                                草稿
+                                            </button>
+                                            <a href="/admin/post">
+                                                <button type="button" class="btn btn-warning" >
+                                                    关闭
+                                                </button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

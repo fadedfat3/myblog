@@ -11,6 +11,7 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Post::where('published_at', '<=', Carbon::now())
+            ->where('is_draft', 0)
             ->orderBy('published_at', 'desc')
             ->paginate(config('myblog.posts_per_page'));
 

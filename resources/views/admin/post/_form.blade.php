@@ -34,8 +34,7 @@
                 摘要
             </label>
             <div class="col-md-10">
-                <textarea class="form-control" name="meta_description" id="meta_description" rows="6">
-                    {{ $meta_description }}
+                <textarea class="form-control" name="meta_description" id="meta_description" rows="6">{{ $meta_description }}
                 </textarea>
             </div>
         </div>
@@ -73,19 +72,6 @@
                 </select>
             </div>
         </div>
-        
-        <div class="form-group row">
-            <div class="col-md-10 col-md-offset-3">
-                <div class="checkbox">
-                    <label>
-                        <input {{ checked($is_draft) }} type="checkbox" name="is_draft">
-                        存为草稿
-                    </label>
-                </div>
-            </div>
-        </div>
-        
-
     </div>
 </div>
 
