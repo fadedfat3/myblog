@@ -7,20 +7,18 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('myblog.title') }}</title>
-
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    @yield('styles')
+    
 
 </head>
 <body>
 {{-- Navigation Bar --}}
-<nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-    <div class="container">
-        <a class="navbar-brand mr-auto mr-lg-0" href="/">{{ config('myblog.title') }} </a>
-        @include('navbar')
+
+
         
-    </div>
-</nav>
+
+@include('navbar')
+
 
 <main class="py-4">
     @yield('content')

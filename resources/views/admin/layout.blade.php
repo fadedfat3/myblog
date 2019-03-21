@@ -14,25 +14,19 @@
 </head>
 <body>
 {{-- Navigation Bar --}}
-<nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-    <div class="container">
-        @include('navbar')
-         
-    </div>
-</nav>
 
-<nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-    <div class="container">
-        <div>
-            @include('admin.navbar')
-        </div>     
-    </div>
-</nav>
+        @include('navbar')
+   
+<div class="row">
+<div class="col-md-2">
+        @include('admin.navbar')
+</div>
  
 
-<main class="py-4">
+<main class="py-4 col-md-10">
     @yield('content')
 </main>
+</div>
 <script src="{{ asset('js/app.js') }}"></script>
 
 @yield('scripts')

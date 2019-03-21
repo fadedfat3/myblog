@@ -23,7 +23,7 @@ Route::prefix('post')->group(function(){
 Route::namespace('Auth')->group(function (){
     Route::get('/login', 'LoginController@loginForm')->name('login');
     Route::post('/login', 'LoginController@login');
-    Route::post('logout', 'LoginController@logout')->name('logout');
+    Route::get('/logout', 'LoginController@logout')->name('logout');
 });
 
 Route::prefix('admin')->namespace('Admin')->middleware('auth')->group(function (){
