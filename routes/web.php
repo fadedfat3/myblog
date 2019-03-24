@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::prefix('post')->group(function(){
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('{id}', 'HomeController@show')->name('post.show');
-    Route::post('thumbs', 'HomeController@thumbs');
+    Route::post('thumbs', 'HomeController@addThumbs');
 });
 
 Route::namespace('Auth')->group(function (){

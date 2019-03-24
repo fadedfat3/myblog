@@ -30,13 +30,18 @@ class HomeController extends Controller
         return view('home.post', ['post' => $post, 'next' => $nextPost, 'pre' => $prePost]);
     }
 
-    public static function thumbs($id)
+    public static function getThumbs($id)
     {   
-       
         $post = Post::find($id);
+        return $post->thumbs;
+    }
+
+    public static function addThumbs(Request $req)
+    {
+        $post = Post::find($req->input('id'));
         $post->increment('thumbs');
         $post->save();
-        return $post->thumbs;
+        return back();
     }
 
     

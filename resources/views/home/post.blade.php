@@ -20,7 +20,7 @@
     }
     .description button {
         border : 0px none white;
-        background-color : white;
+        background-color: #f8fafc;
     }
     .description form {
         display : inline;
@@ -38,9 +38,10 @@
         <form method="POST" action="/post/thumbs">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <input type="hidden" name="id" value="{{ $post->id }}">
-            <button type="submit"><i class="fa fa-thumbs-up"></i></button>点赞数{{$post->thumbs + 1}}
+            <button type="submit"><i class="fa fa-thumbs-up"></i></button>
         </form>
-        posted at {{ $post->published_at }}
+        <span class="bold">{{$post->thumbs}}</span>
+        <span class="strong">posted at {{ $post->published_at }}</span>
     </div>
     
     <div class="go-lr ">
